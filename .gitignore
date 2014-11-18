@@ -3,3 +3,5 @@ gen
 .gradle
 build
 .settings
+local.properties
+.idea/
