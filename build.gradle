@@ -11,7 +11,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion = '19.1.0'
+    buildToolsVersion = '21.1.0'
 }
 
 task createGradleWrapper(type: Wrapper) {
