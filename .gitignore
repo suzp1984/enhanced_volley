@@ -5,3 +5,6 @@ build
 .settings
 local.properties
 .idea/
+GPATH
+GRTAGS
+GTAGS
