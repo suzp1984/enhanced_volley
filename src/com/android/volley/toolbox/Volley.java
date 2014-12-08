@@ -26,6 +26,11 @@ import com.android.volley.Network;
 import com.android.volley.RequestQueue;
 
 import java.io.File;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
 
 public class Volley {
 
@@ -91,7 +96,19 @@ public class Volley {
 
         if (stack == null) {
             if (Build.VERSION.SDK_INT >= 9) {
-                stack = new HurlStack();
+                try {
+
+                    SSLContext sslContext = SSLContext.getInstance("TLS");
+                    TrustManager[] trustManagers = new TrustManager[]{new TrustAllManager()};
+                    sslContext.init(null, trustManagers, null);
+                    stack = new HurlStack(null, sslContext.getSocketFactory());
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                } catch (KeyManagementException e ) {
+                    e.printStackTrace();
+                } finally {
+
+                }
             } else {
                 // Prior to Gingerbread, HttpUrlConnection was unreliable.
                 // See: http://android-developers.blogspot.com/2011/09/androids-http-clients.html
