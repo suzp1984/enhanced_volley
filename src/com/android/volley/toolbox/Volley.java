@@ -41,7 +41,6 @@ public class Volley {
      * Create a default instance of the worker pool and calls {@link RequestQueue#start()} on it.
      * 
      * @param context
-     * @param stack
      * @param network
      * @return
      */
