@@ -39,7 +39,7 @@ public class Volley {
      * @param network
      * @return
      */
-    public static RequestQueue newRequestQueueWithCustomNetwork(Context context, Network network) {
+    public static RequestQueue newRequestQueue(Context context, Network network) {
         File cacheDir = new File(context.getCacheDir(), DEFAULT_CACHE_DIR);
 
         String userAgent = "volley/0";
@@ -76,7 +76,7 @@ public class Volley {
      * @param stack An {@link HttpStack} to use for the network, or null for default.
      * @return A started {@link RequestQueue} instance.
      */
-    public static RequestQueue newRequestQueueWithCustomHttpStack(Context context, HttpStack stack) {
+    public static RequestQueue newRequestQueue(Context context, HttpStack stack) {
         File cacheDir = new File(context.getCacheDir(), DEFAULT_CACHE_DIR);
 
         String userAgent = "volley/0";
@@ -112,6 +112,6 @@ public class Volley {
      * @return A started {@link RequestQueue} instance.
      */
     public static RequestQueue newRequestQueue(Context context) {
-        return newRequestQueueWithCustomHttpStack(context, null);
+        return newRequestQueue(context, (HttpStack) null);
     }
 }
