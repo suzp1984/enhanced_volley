@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 android {
     sourceSets {
         defaultConfig {
-            testApplicationId 'com.android.volley.tests'
+            // testApplicationId 'com.android.volley.tests'
         }
 
         main {
@@ -13,13 +13,13 @@ android {
             aidl.srcDirs         = ['src']
             resources.srcDirs    = ['src']
             renderscript.srcDirs = ['src']
-            java.srcDirs         = ['src']
-            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs         = ['src/main/java/']
+            manifest.srcFile 'src/main/AndroidManifest.xml'
 
         }
 
-        androidTest.setRoot('tests')
-        androidTest.java.srcDirs = ['tests/src']
+        //androidTest.setRoot('tests')
+        //androidTest.java.srcDirs = ['src/test/']
     }
     lintOptions {
         // TODO: fix errors and reenable.
